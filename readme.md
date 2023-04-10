@@ -7,6 +7,8 @@ I think I'll start again and use replit and follow his steps exactly as it's not
 
 I did that and works fine, just need to find out how to get it on local. For the moment it's functioning well on Replit and all the API info is hidden!
 
+Video tutorial followed - https://www.youtube.com/watch?v=nu_pCVPKzTk Full Stack Web Development for Beginners (Full Course on HTML, CSS, JavaScript, Node.js, MongoDB)
+
 CRUD commands:
 
 curl -X POST https://backend-api-for-fullstack-movie-site.td6904.repl.co/api/v1/reviews/new -H "Content-Type: application/json" -d '{"movieId": 13, "user": "jimmyagain", "review": "really rubbish"}'
