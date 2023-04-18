@@ -82,6 +82,7 @@ export default class ReviewsDAO {
 
   static async getReviewsByMovieId(movieId) {
         console.log("mov", movieId)
+        console.log("typeof movieId:", typeof movieId)
     try {
       const cursor = await reviews.find({ movieId: parseInt(movieId) })
       return cursor.toArray()
