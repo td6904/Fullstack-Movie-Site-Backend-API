@@ -6,6 +6,7 @@ import app from "./server.js"
 import mongodb from "mongodb"
 import ReviewsDAO from "./dao/reviewsDAO.js"
 import dotenv from "dotenv"
+console.log(mongodb);
 // ^^^had to add this line for secrets to work locally
 
 dotenv.config()
