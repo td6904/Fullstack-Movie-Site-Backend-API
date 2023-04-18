@@ -16,3 +16,32 @@ curl -X POST https://backend-api-for-fullstack-movie-site.td6904.repl.co/api/v1/
 curl -X GET https://backend-api-for-fullstack-movie-site.td6904.repl.co/api/v1/reviews/movie/12
 
 curl -X PUT https://backend-api-for-fullstack-movie-site.td6904.repl.co/api/v1/reviews/6411b72c7ea10e6a5b0e05ba -H "Content-Type: application/json" -d '{"user": "jimmyagain", "review": "horrible"}'
+
+When trying to connect front and back via local I didn't have much chance. One thing I had to do was loop over the data as an object rather than an arrary in the front movie.js file. The code from like 36 - 58:
+
+//Loop over data object
+function returnReviews(url) {
+  fetch(url + "movie/" + movieId)
+    .then(res => res.json())
+    .then(function (data) {
+      console.log(data);
+      for (const key in data) {
+        if (Object.hasOwnProperty.call(data, key)) {
+          const review = data[key];
+          const div_card = document.createElement("div");
+          div_card.innerHTML = `
+            <div class="row">
+              <div class="column">
+                <div class="card" id="${review._id}">
+                  <p><strong>Review: </strong>${review.review}</p>
+                  <p><strong>User: </strong>${review.user}</p>
+                  <p><a href="#" onclick="editReview('${review._id}', '${review.review}', '${review.user}')">✏️</a> <a href="#" onclick="deleteReview('${review._id}')">🗑️</a></p>
+                </div>
+              </div>
+            </div>
+          `;
+          main.appendChild(div_card);
+        }
+      }
+    });
+}
